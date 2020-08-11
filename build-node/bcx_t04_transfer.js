@@ -41,20 +41,24 @@ bcx.passwordLogin({
 
         /////////////////////////
         setInterval(() => {
-            var amount = Math.ceil(Math.random()*20) + 1;
-            bcx.transferAsset({
-                fromAccount:"jssdk-test02",
-                toAccount:"jssdk-test03", 
-                amount:amount,
-                assetId:"COCOS",
-                memo:"test transfer by jssdk, random: " + Math.ceil(Math.random()*210000),
-                isEncryption:false
-            }).then(result=>{
-                console.info("bcx transfer", amount, ', res: ', result);
-            })
+            transfer();
         }, 200);
     }
 });
+
+function transfer() {
+    var amount = Math.ceil(Math.random()*20) + 1;
+    bcx.transferAsset({
+        fromAccount:"jssdk-test02",
+        toAccount:"jssdk-test03", 
+        amount:amount,
+        assetId:"COCOS",
+        memo:"test transfer by jssdk, random: " + Math.ceil(Math.random()*210000),
+        isEncryption:false
+    }).then( result => {
+        console.info("bcx transfer", amount, ', res: ', result);
+    })
+}
 
 /**
 dev@ubuntu:~/data/mrepo/JSSDK/build-node$ node bcx_t04_transfer.js 
