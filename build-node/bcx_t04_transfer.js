@@ -28,18 +28,10 @@ bcx.passwordLogin({
     console.info("passwordLogin res: ", res);
 
     if(res.code == 1) {
-        // bcx.transferAsset({
-        //     fromAccount:"jssdk-test02",
-        //     toAccount:"jssdk-test03",  //query.to,
-        //     amount:1,   //query.token,
-        //     assetId:"COCOS",
-        //     memo:"test transfer by jssdk, test last_block_num: " + last_block_num,
-        //     isEncryption:false
-        // }).then(result=>{
-        //     console.info('bcx transfer res: ', result);
-        // })
+        // 1. transfer
+        // transfer();
 
-        /////////////////////////
+        // 2. batch transfer
         setInterval(() => {
             transfer();
         }, 200);
