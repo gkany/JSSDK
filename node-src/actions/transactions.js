@@ -285,7 +285,12 @@ export const _transactionOperations = async (store, { operations,proposeAccount=
   if (res.success) {
 
     // if(onlyGetFee) return {code:1,data:res.data}
-    
+
+    // console.log("[transaction-parse] res: ", res);
+    if (typeof(res.data) == 'string') {
+      // console.log("res.data: ", res.data);
+      return res.data;
+    }
      let {id,block_num,trx}=res.data[0];
      let results=[];
      let op_result;
